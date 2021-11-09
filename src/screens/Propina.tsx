@@ -22,28 +22,19 @@ const Propina = () => {
         // alert(porPersona)
     }
 
-    const handleCalcular10 = () => {
-        alert('Hola')
-    }
-    const handleCalcular15 = () => {
-        alert('Hola')
-    }
-    const handleCalcular20 = () => {
-        alert('Hola')
-    }
-    const handleCalcular25 = () => {
-        alert('Hola')
-    }
-    const handleCalcularCustom = () => {
-        alert('Hola')
-    }
 
 
     return (
-        <View >
+        <View style={styles.container}>
             <ScrollView>
-                <Text>Cuenta</Text>
-                <TextInput style={styles.input} onChangeText={setCuenta} />
+                <Text style={styles.headerText}>Cuenta</Text>
+                <View>
+                <TextInput 
+                style={styles.input}
+                keyboardType='numeric'
+                 onChangeText={setCuenta} />
+                </View>
+               
 
                 <Text>Seleccione el porcentaje de propina</Text>
                 <TouchableOpacity
@@ -100,9 +91,57 @@ const Propina = () => {
 export default Propina
 
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: 'pink',
-        marginHorizontal: 20,
+    container: {
+        borderTopRightRadius:20,
+        borderTopLeftRadius:20,
+        backgroundColor: '#FFFFFF',
+        flex:1,
+        width:'100%',
+        paddingTop:24,
+        paddingLeft:24,
+        paddingRight:24
+    },
+    headerText:{
+        fontWeight:'bold',
+        fontSize:18,
+        color:'#687778',
+        borderWidth:0,
+        marginBottom:5,
+        marginTop:5
+    },
+    inputs:{
+        backgroundColor:'#F2F8FB',
+        borderRadius:8,
+        padding:10,
+        textAlign:'right',
+        fontSize:22,
+        fontWeight:'bold',
+        color:'#004445'
+    },
+    textaddon:{
+        position:'absolute',
+        borderRadius:8,
+        padding:10,
+        textAlign:'right',
+        fontSize:22,
+        fontWeight:'bold',
+        color:'#004445'
+        
+    },
+    boxSelectTip:{
+    marginTop:25
+    },
+    containersButtons:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:"space-between",
+        alignContent:"space-between",
+        flexWrap:'wrap'
+    },
+    porcelainButton:{
+    backgroundColor:'#00C1AC',
+    borderRadius:8,
+    width:'48%'
     },
     input: {
         borderColor: 'green',
