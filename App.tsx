@@ -9,28 +9,29 @@ import Propina from './src/screens/Propina';
 export default function App() {
 
   return (
-    <View style={styles.container1}>
-      <View>
-        <Text>Propina</Text>
+    <View style={styles.containerFondo}>
+      <View style={styles.container}>
+        <Text style={styles.text}>Dividir Cuenta</Text>
       </View>
-      <View style={styles.container1}>
-        <Propina></Propina>
-      </View>
-
+      <Propina></Propina>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container1: {
-    flex: 30,
-    color: 'red',
-    justifyContent: 'center'
+  container: {
+    marginTop:27,
+    paddingVertical:40
   },
-  container2:{
-    flex: 70,
-    color: 'green',
-    justifyContent: 'center'
+  text:{
+   fontSize:40,
+   fontWeight:'normal',
+   color:'#034C50'
+  },
+  containerFondo:{
+    backgroundColor:'#C0E3E6',
+    flex:1,
+    alignItems:'center'
   }
 
 })
