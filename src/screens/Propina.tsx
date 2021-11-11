@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet, TextInput, TouchableOpacity, Button } from 'react-native';
+import {FontAwesome} from '@expo/vector-icons';
 
 const Propina = () => {
     const [total, setTotal] = useState('145.66')
@@ -8,7 +9,15 @@ const Propina = () => {
     const [propina, setPropina] = useState('4.27')
     const [totalPersona, setTotalPersona] = useState('32.79')
 
+    const calcularPropina = () => {
+        let propinaTotal = (total * (porcentaje /100))
+    }
 
+    const resetData = () =>{
+        setTotal('0')
+    }
+
+    
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -28,7 +37,7 @@ const Propina = () => {
                     </Text>
                     <View style={styles.containersButtons}>
                         <TouchableOpacity
-                            onPress={() => setPorcentaje('5')}
+                            onPress={() => setPorcentaje(5)}
                             style={
                                 porcentaje == '5'
                                     ? styles.botonPorcentajeActivate
@@ -38,8 +47,8 @@ const Propina = () => {
                             <Text
                                 style={
                                     porcentaje == '5'
-                                    ? styles.textbotonPorcentajeActivate
-                                    : styles.textbotonPorcentaje
+                                        ? styles.textbotonPorcentajeActivate
+                                        : styles.textbotonPorcentaje
                                 }
                             >
                                 5%
@@ -47,7 +56,7 @@ const Propina = () => {
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => setPorcentaje('10')}
+                            onPress={() => setPorcentaje(10)}
                             style={
                                 porcentaje == '10'
                                     ? styles.botonPorcentajeActivate
@@ -57,15 +66,15 @@ const Propina = () => {
                             <Text
                                 style={
                                     porcentaje == '10'
-                                    ? styles.textbotonPorcentajeActivate
-                                    : styles.textbotonPorcentaje
+                                        ? styles.textbotonPorcentajeActivate
+                                        : styles.textbotonPorcentaje
                                 }
                             >
                                 10%
                             </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => setPorcentaje('15')}
+                            onPress={() => setPorcentaje(15)}
                             style={
                                 porcentaje == '15'
                                     ? styles.botonPorcentajeActivate
@@ -75,16 +84,16 @@ const Propina = () => {
                             <Text
                                 style={
                                     porcentaje == '15'
-                                    ? styles.textbotonPorcentajeActivate
-                                    : styles.textbotonPorcentaje
+                                        ? styles.textbotonPorcentajeActivate
+                                        : styles.textbotonPorcentaje
                                 }
                             >
                                 15%
                             </Text>
                         </TouchableOpacity>
-        
+
                         <TouchableOpacity
-                            onPress={() => setPorcentaje('25')}
+                            onPress={() => setPorcentaje(25)}
                             style={
                                 porcentaje == '25'
                                     ? styles.botonPorcentajeActivate
@@ -94,15 +103,15 @@ const Propina = () => {
                             <Text
                                 style={
                                     porcentaje == '25'
-                                    ? styles.textbotonPorcentajeActivate
-                                    : styles.textbotonPorcentaje
+                                        ? styles.textbotonPorcentajeActivate
+                                        : styles.textbotonPorcentaje
                                 }
                             >
                                 25%
                             </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => setPorcentaje('50')}
+                            onPress={() => setPorcentaje(50)}
                             style={
                                 porcentaje == '50'
                                     ? styles.botonPorcentajeActivate
@@ -112,18 +121,68 @@ const Propina = () => {
                             <Text
                                 style={
                                     porcentaje == '50'
-                                    ? styles.textbotonPorcentajeActivate
-                                    : styles.textbotonPorcentaje
+                                        ? styles.textbotonPorcentajeActivate
+                                        : styles.textbotonPorcentaje
                                 }
                             >
                                 50%
                             </Text>
                         </TouchableOpacity>
-<TouchableOpacity style={styles.botonPorcentaje}>
-    <Text style={styles.textbotonPorcentaje}>Custom</Text>
-</TouchableOpacity>
+                        <TouchableOpacity style={styles.botonPorcentaje}>
+                            <Text style={styles.textbotonPorcentaje}>Custom</Text>
+                        </TouchableOpacity>
 
                     </View>
+                </View>
+                
+                <View style={styles.boxSelectTip}>
+                    <Text style={styles.headerText}>
+                        Numeros de personas
+                    </Text>
+                    <View>
+                        <FontAwesome
+                        style={styles.textaddon}
+                        name="user"
+                        size={32}
+                        color="black"
+                        />
+                        <TextInput
+                        keyboardType='numeric'
+                        style={styles.inputs}
+                        defaultValue={personas}
+                        onChangeText={setPersonas}
+                        />
+                    </View>
+                </View>
+                
+                <View style={styles.boxResumen}>
+                    <View style={styles.filaResumen}>
+                    <View>
+                        <Text style={styles.textWhiteHeaderText}>Propina</Text>
+                        <Text style={styles.textGrayResumen}>Persona</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.textMontoResumen}>${propina}</Text>
+                    </View>
+
+                    </View>
+
+                    <View style={styles.filaResumen}>
+                    <View>
+                        <Text style={styles.textWhiteHeaderText}>Total</Text>
+                        <Text style={styles.textGrayResumen}>Persona</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.textMontoResumen}>${totalPersona}</Text>
+                    </View>
+                    </View>
+                    <TouchableOpacity
+                    onPress={() => resetData()}
+                    style={styles.botonReset}
+                    >
+                        <Text style={styles.textbotonReset}>Reset</Text>
+
+                    </TouchableOpacity>
                 </View>
 
 
