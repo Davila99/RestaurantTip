@@ -3,26 +3,10 @@ import { View, Text, ScrollView, StyleSheet, TextInput, TouchableOpacity, Button
 
 const Propina = () => {
     const [total, setTotal] = useState('145.66')
-    const [cuenta, setCuenta] = useState('')
-    const [cantidad, setcantidad] = useState('')
-    const [resultado, setResultado] = useState(0)
-    const [resultadoFinal, setResultadoFinal] = useState(0)
-
-    const porcentaje5 = 0.05
-
-    const handleCalcular = () => {
-
-    }
-
-    const handleCalcular5 = () => {
-        const porcentaje = (parseInt(cuenta) * porcentaje5)
-        const porPersona = porcentaje / parseFloat(cantidad)
-        const resultado = parseFloat(cuenta) / parseFloat(cantidad) + porPersona
-        setResultado(porPersona)
-        setResultadoFinal(resultado)
-        // alert(porPersona)
-    }
-
+    const [personas, setPersonas] = useState('5')
+    const [porcentaje, setPorcentaje] = useState('15')
+    const [propina, setPropina] = useState('4.27')
+    const [totalPersona, setTotalPersona] = useState('32.79')
 
 
     return (
@@ -30,7 +14,7 @@ const Propina = () => {
             <ScrollView>
                 <Text style={styles.headerText}>Cuenta</Text>
                 <View>
-                <Text style={styles.textaddon}>C$</Text>
+                    <Text style={styles.textaddon}>C$</Text>
                     <TextInput
                         style={styles.inputs}
                         keyboardType='numeric'
@@ -39,9 +23,109 @@ const Propina = () => {
                 </View>
 
                 <View style={styles.boxSelectTip}>
+                    <Text style={styles.headerText}>
+                        Seleccione el porcentaje de propina
+                    </Text>
+                    <View style={styles.containersButtons}>
+                        <TouchableOpacity
+                            onPress={() => setPorcentaje('5')}
+                            style={
+                                porcentaje == '5'
+                                    ? styles.botonPorcentajeActivate
+                                    : styles.botonPorcentaje
+                            }
+                        >
+                            <Text
+                                style={
+                                    porcentaje == '5'
+                                    ? styles.textbotonPorcentajeActivate
+                                    : styles.textbotonPorcentaje
+                                }
+                            >
+                                5%
+                            </Text>
+                        </TouchableOpacity>
 
+                        <TouchableOpacity
+                            onPress={() => setPorcentaje('10')}
+                            style={
+                                porcentaje == '10'
+                                    ? styles.botonPorcentajeActivate
+                                    : styles.botonPorcentaje
+                            }
+                        >
+                            <Text
+                                style={
+                                    porcentaje == '10'
+                                    ? styles.textbotonPorcentajeActivate
+                                    : styles.textbotonPorcentaje
+                                }
+                            >
+                                10%
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => setPorcentaje('15')}
+                            style={
+                                porcentaje == '15'
+                                    ? styles.botonPorcentajeActivate
+                                    : styles.botonPorcentaje
+                            }
+                        >
+                            <Text
+                                style={
+                                    porcentaje == '15'
+                                    ? styles.textbotonPorcentajeActivate
+                                    : styles.textbotonPorcentaje
+                                }
+                            >
+                                15%
+                            </Text>
+                        </TouchableOpacity>
+        
+                        <TouchableOpacity
+                            onPress={() => setPorcentaje('25')}
+                            style={
+                                porcentaje == '25'
+                                    ? styles.botonPorcentajeActivate
+                                    : styles.botonPorcentaje
+                            }
+                        >
+                            <Text
+                                style={
+                                    porcentaje == '25'
+                                    ? styles.textbotonPorcentajeActivate
+                                    : styles.textbotonPorcentaje
+                                }
+                            >
+                                25%
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => setPorcentaje('50')}
+                            style={
+                                porcentaje == '50'
+                                    ? styles.botonPorcentajeActivate
+                                    : styles.botonPorcentaje
+                            }
+                        >
+                            <Text
+                                style={
+                                    porcentaje == '50'
+                                    ? styles.textbotonPorcentajeActivate
+                                    : styles.textbotonPorcentaje
+                                }
+                            >
+                                50%
+                            </Text>
+                        </TouchableOpacity>
+<TouchableOpacity style={styles.botonPorcentaje}>
+    <Text style={styles.textbotonPorcentaje}>Custom</Text>
+</TouchableOpacity>
+
+                    </View>
                 </View>
-            
+
 
             </ScrollView>
         </View>
